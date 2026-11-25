@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get 12 Pubs of Christmas</title>
+<style>
+  body { margin: 0; font-family: -apple-system, system-ui, Segoe UI, Roboto, sans-serif; background: #0e1a14; color: #f2f7f4; }
+  main { max-width: 480px; margin: 0 auto; padding: 40px 22px 60px; text-align: center; }
+  h1 { font-size: 26px; margin: 8px 0 6px; }
+  p { color: #cfe3d8; line-height: 1.5; }
+  a.btn { display: block; margin: 12px 0; padding: 16px; border-radius: 14px; background: #2e7d4f; color: #fff; font-weight: 700; text-decoration: none; }
+  a.btn.alt { background: transparent; border: 1px solid #3b5a49; }
+  .box { margin-top: 26px; padding: 16px; border: 1px solid #2e4a3c; border-radius: 14px; background: #16261e; text-align: left; }
+  .box ol { margin: 8px 0 0; padding-left: 20px; color: #cfe3d8; line-height: 1.6; }
+  .small { font-size: 13px; color: #8fa89a; }
+  .hidden { display: none; }
+  a { color: #e0b341; }
+</style>
+</head>
+<body>
+<main>
+  <div style="font-size:48px">🍻🎄</div>
+  <h1>12 Pubs of Christmas</h1>
+  <p>Plan a Christmas pub crawl with your friends, with alerts so everyone leaves for the next pub together.</p>
+
+  <!-- Fill these in when the app is live in the stores. Leave a link empty until then. -->
+  <a id="ios" class="btn hidden" href="#">Download for iPhone</a>
+  <a id="android" class="btn hidden" href="#">Download for Android</a>
+  <p id="soon" class="hidden">The app isn't in the App Store or Google Play just yet. Ask whoever invited you for a test invite, and keep the crawl name and password they sent you.</p>
+
+  <div class="box">
+    <strong>Already have the app?</strong>
+    <ol>
+      <li>Open <b>12 Pubs of Christmas</b>.</li>
+      <li>Tap <b>Join a pub crawl</b>.</li>
+      <li>Type in the crawl name and password from the message you were sent.</li>
+    </ol>
+  </div>
+
+  <p class="small">For adults of legal drinking age (18+). Please drink responsibly.<br>
+  <a href="./">Privacy policy</a> · <a href="mailto:12poc@halcyon-apps.com">Contact</a></p>
+</main>
+<script>
+  var IOS_URL = "";      // e.g. https://apps.apple.com/gb/app/idXXXXXXXXXX
+  var ANDROID_URL = "";  // e.g. https://play.google.com/store/apps/details?id=com.twelvepubs.christmas
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  var isAndroid = /Android/i.test(ua);
+  function show(id, url) { var el = document.getElementById(id); if (url) { el.href = url; el.classList.remove("hidden"); return true; } return false; }
+  var any = false;
+  any = show("ios", IOS_URL) || any;
+  any = show("android", ANDROID_URL) || any;
+  if (!any) document.getElementById("soon").classList.remove("hidden");
+  // Put the button for the visitor's own phone first.
+  if (isAndroid) { var a = document.getElementById("android"); a.parentNode.insertBefore(a, document.getElementById("ios")); }
+  else if (!isIOS) { document.getElementById("ios").classList.add("alt"); document.getElementById("android").classList.add("alt"); }
+</script>
+</body>
+</html>
